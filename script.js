@@ -20,9 +20,7 @@ class Book {
   }
 }
 
-function addBookToLibrary() {}
-
-function getBookData(event) {
+function addBookToLibrary(event) {
   // Prevent the page to reload itself when submit
   event.preventDefault();
   // Stores all elements of the user in variables
@@ -58,7 +56,7 @@ const selectBookRead = document.getElementById("read");
 
 // Extract values inputed by the user. Submit event only when all required
 // elements have been inputed by the user  (does not start the event otherwise)
-formBook.addEventListener("submit", getBookData);
+formBook.addEventListener("submit", addBookToLibrary);
 
 function addBookToLibrary() {}
 
