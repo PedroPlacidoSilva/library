@@ -14,7 +14,8 @@ class Book {
       } else {
         text = "not read yet";
       }
-      return `${this.title} by ${this.author}, ${this.pages}, ${text}`;
+      // return `${this.title} by ${this.author}, ${this.pages}, ${text}`;
+      return [`${this.title} by ${this.author}`, `${this.pages}`, `${text}`];
     };
   }
 }
@@ -29,7 +30,7 @@ function getBookData(event) {
   let bookAuthor = document.getElementById("bookAuthor").value;
   let bookPages = document.getElementById("bookPages").value;
   let bookRead = selectBookRead.value;
-  console.log(bookRead);
+
   // myBook will store the array with user input for each book
   let myBook = new Array();
   // Stores information of the new book created
@@ -61,6 +62,14 @@ formBook.addEventListener("submit", getBookData);
 
 function addBookToLibrary() {}
 
-const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true);
+myLibrary.push(["The Odin List of Treasures by Odin", "220", "read"]);
+myLibrary.push(["The Emperor by Shiklun", "145", "read"]);
+myLibrary.push([
+  "The Girl of the Blue Train by Shiklun",
+  "173",
+  "not read yet",
+]);
+myLibrary.push(["The Shinoby of the Sand by Ninpo", "85", "not read yet"]);
+// const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, true);
 
-console.log(theHobbit.info());
+// console.log(theHobbit.info());
