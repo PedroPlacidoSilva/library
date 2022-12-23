@@ -44,3 +44,21 @@ button {
   cursor: pointer;
   margin: 20px 0;
 }
+
+#cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-gap: 20px;
+}
+
+.card {
+  background-color: #e1f0e2;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.card-content {
+  font-size: 16px;
+  padding: 2px;
+  margin: 0.2rem;
+}
