@@ -25,7 +25,7 @@ class Book {
   }
 }
 
-// Pedro
+// Function to update the book library shown to the user on HTML
 function displayBooks(books) {
   // Delete all elements inside the cards div element (In order to present the updated library)
   const delBooks = document.getElementById("cards");
@@ -49,12 +49,19 @@ function displayBooks(books) {
     const readBook = document.createElement("p");
     readBook.classList.add("card-content");
     readBook.textContent = `Status: ${books[i][2]}`;
+    // Create button element. Set type atribute to button and class to card-delete
+    const buttonDelete = document.createElement("button");
+    buttonDelete.setAttribute("type", "button");
+    buttonDelete.classList.add("card-delete");
+    buttonDelete.textContent = "Delete Book";
+
     // Append the card div to the div with id cards
     cardsContainer.appendChild(div);
     // Append the paragraph's to the each card (div element created)
     div.appendChild(titleBook);
     div.appendChild(pagesBook);
     div.appendChild(readBook);
+    div.appendChild(buttonDelete);
   }
 }
 

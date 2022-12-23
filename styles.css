@@ -33,7 +33,7 @@ select {
   margin: 10px 0;
 }
 
-button {
+#submitBook {
   width: 10rem;
   height: 4rem;
   font-size: 1em;
@@ -45,6 +45,10 @@ button {
   margin: 20px 0;
 }
 
+#submitBook:hover {
+  background-color: #38823a;
+}
+
 #cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -52,7 +56,7 @@ button {
 }
 
 .card {
-  background-color: #e1f0e2;
+  background-color: #ecf3ed;
   border-radius: 1rem;
   padding: 0.5rem;
 }
@@ -61,4 +65,16 @@ button {
   font-size: 16px;
   padding: 2px;
   margin: 0.2rem;
+}
+
+.card-delete {
+  border-radius: 5px;
+  border-color: #80ea84;
+  cursor: pointer;
+}
+
+.card-delete:hover {
+  background-color: #38823a;
+
+  color: white;
 }
