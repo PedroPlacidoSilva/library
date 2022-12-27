@@ -63,6 +63,26 @@ function displayBooks(books) {
     div.appendChild(readBook);
     div.appendChild(buttonDelete);
   }
+  // Need to be updated everytime it is displayed because we can delete books
+  //Get node list of all buttons inside the container with ID cards
+  const btnDelete = document.querySelectorAll("#cards button");
+  // Add event listener to every button on the node list btnDelete
+  btnDelete.forEach((button) => {
+    button.addEventListener("click", deleteBooks);
+  });
+}
+
+// Function to delete books on the library and update the list of books
+function deleteBooks() {
+  // Get the Parent Node of the button container clicked
+  const container = this.parentNode;
+  // Get the ID of the Parent Node (Get the container ID. Replace the word 'card' by nothing and convert to number)
+  let containerId = Number(container.id.replace("card", ""));
+  // Remonve from myLibrary the element(book). The second element is the number of items to remove
+  myLibrary.splice(containerId, 1);
+  //Display updated version of Books
+
+  displayBooks(myLibrary);
 }
 
 // Function to Add Book to Library
@@ -106,4 +126,5 @@ const selectBookRead = document.getElementById("read");
 // elements have been inputed by the user  (does not start the event otherwise)
 formBook.addEventListener("submit", addBookToLibrary);
 
+// Display Books on Load
 displayBooks(myLibrary);
