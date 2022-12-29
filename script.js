@@ -49,6 +49,19 @@ function displayBooks(books) {
     const readBook = document.createElement("p");
     readBook.classList.add("card-content");
     readBook.textContent = `Status: ${books[i][2]}`;
+
+    const toggleReadButton = document.createElement("input");
+    toggleReadButton.classList.add("card-content");
+    toggleReadButton.type = "checkbox";
+    if (books[i][2] === "read") {
+      toggleReadButton.checked = true;
+    } else {
+      toggleReadButton.checked = false;
+    }
+
+    //*************** To finish */
+    // toggleReadButton.addEventListener("change", updateArray);
+
     // Create button element. Set type atribute to button and class to card-delete
     const buttonDelete = document.createElement("button");
     buttonDelete.setAttribute("type", "button");
@@ -61,6 +74,7 @@ function displayBooks(books) {
     div.appendChild(titleBook);
     div.appendChild(pagesBook);
     div.appendChild(readBook);
+    div.appendChild(toggleReadButton);
     div.appendChild(buttonDelete);
   }
   // Need to be updated everytime it is displayed because we can delete books
