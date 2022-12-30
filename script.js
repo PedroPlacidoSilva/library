@@ -46,21 +46,19 @@ function displayBooks(books) {
     pagesBook.classList.add("card-content");
     pagesBook.textContent = `Pages: ${books[i][1]}`;
     // Create element and set the third element of each book on html
+
     const readBook = document.createElement("p");
-    readBook.classList.add("card-content");
+    readBook.classList.add("card-content", "card-content-read");
     readBook.textContent = `Status: ${books[i][2]}`;
 
     const toggleReadButton = document.createElement("input");
-    toggleReadButton.classList.add("card-content");
+    toggleReadButton.classList.add("card-content", "card-content-read");
     toggleReadButton.type = "checkbox";
     if (books[i][2] === "read") {
       toggleReadButton.checked = true;
     } else {
       toggleReadButton.checked = false;
     }
-
-    //*************** To finish */
-    // toggleReadButton.addEventListener("change", updateArray);
 
     // Create button element. Set type atribute to button and class to card-delete
     const buttonDelete = document.createElement("button");
@@ -84,6 +82,12 @@ function displayBooks(books) {
   btnDelete.forEach((button) => {
     button.addEventListener("click", deleteBooks);
   });
+
+  const checkboxClicked = document.querySelectorAll("#cards input");
+  // Add event listener to every toggleReadButton Checkbox
+  checkboxClicked.forEach((checkbox) => {
+    checkbox.addEventListener("change", updateArray);
+  });
 }
 
 // Function to delete books on the library and update the list of books
@@ -95,6 +99,26 @@ function deleteBooks() {
   // Remonve from myLibrary the element(book). The second element is the number of items to remove
   myLibrary.splice(containerId, 1);
   //Display updated version of Books
+
+  displayBooks(myLibrary);
+}
+
+function updateArray(event) {
+  console.log("This button was clicked");
+
+  // Get the Parent Node of the button container clicked
+  const container = this.parentNode;
+  // Get the ID of the Parent Node (Get the container ID. Replace the word 'card' by nothing and convert to number)
+  let containerId = Number(container.id.replace("card", ""));
+  // Remonve from myLibrary the element(book). The second element is the number of items to remove
+
+  // Update the array based on the checked state of the toggle switch
+  const checked = event.target.checked;
+  if (checked) {
+    myLibrary[containerId][2] = "read";
+  } else {
+    myLibrary[containerId][2] = "not read yet";
+  }
 
   displayBooks(myLibrary);
 }
